@@ -1,4 +1,4 @@
-# trial
+# WasteWise
 
 A new Flutter project.
 
