@@ -26,10 +26,10 @@ Widget LeaderBoardCard() {
   // List of 5 donors (using dummy data)
   final List<Map<String, String>> donors = [
     {'name': 'John Doe', 'profileImage': logo},   // Use the same logo for all donors
-    {'name': 'Jane Smith', 'profileImage': logo},
-    {'name': 'Michael Lee', 'profileImage': logo},
-    {'name': 'Alice Johnson', 'profileImage': logo},
-    {'name': 'Chris Brown', 'profileImage': logo},
+    {'name': 'Jane Smith', 'profileImage': logo1},
+    {'name': 'Michael Lee', 'profileImage': logo2},
+    {'name': 'Alice Johnson', 'profileImage': logo3},
+    {'name': 'Chris Brown', 'profileImage': logo4},
   ];
 
   return Container(

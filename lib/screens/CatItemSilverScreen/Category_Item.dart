@@ -22,19 +22,19 @@ class _CategoryItemState extends State<CategoryItem> {
             expandedHeight: 200,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
-                logo, // Your image asset
+                surplus, // Your image asset
                 fit: BoxFit.cover,
               ),
               title: Text(
-                'Category Item',
+                'SURPLUS FOOD',
                 style: TextStyle(
                   fontFamily: boldfont,
                   fontSize: 16,
-                  color: Colors.white, // Set text color to white
+                  color: Color.fromARGB(255, 13, 72, 0), // Set text color to white
                 ),
               ),
             ),
-            backgroundColor: Color(0xFFB2C9AD), // Set SliverAppBar background to B2C9AD
+            backgroundColor: Color.fromARGB(255, 178, 201, 173), // Set SliverAppBar background to B2C9AD
             elevation: 0, // Remove the shadow effect
           ),
           // SliverList with custom widget (CatEventsList) displayed only once

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart'; // Import GetX for navigation
+import 'package:animated_text_kit/animated_text_kit.dart'; // Import for typewriter effect
 
-import 'package:trial/const/const_colo.dart';  
+import 'package:trial/const/const_colo.dart';
 import 'package:trial/const/const_fonts.dart';
 import 'package:trial/const/const_img.dart';
 import 'package:trial/screens/Home/Home_screen.dart'; // Import your LoginScreen
@@ -14,7 +15,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  
   @override
   void initState() {
     super.initState();
@@ -28,33 +28,38 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgcolor,  // Background color from const_Var.dart
+      backgroundColor: bgcolor, // Background color from const_Var.dart
       body: Center(
-        child: SingleChildScrollView(  
+        child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(logo, height: 150, width: 150),  // Logo image
-              SizedBox(height: 20),  // Adds space between the logo and the text
-              Text(
-                "Welcome To WaterWise",
-                style: TextStyle(
-                  fontSize: 18,  // Font size
-                  fontWeight: FontWeight.bold,      
-                  fontFamily: regularfont,  // Font family from const_fonts.dart
-                  backgroundColor: Colors.white54,  // Background color for text
+              Image.asset(
+                mainlogo, 
+                height: 200, // Increased height
+                width: 200,  // Increased width
+              ), // Logo image
+              SizedBox(height: 20), // Adds space between the logo and the text
+              Center(
+                child: AnimatedTextKit(
+                  animatedTexts: [
+                    TypewriterAnimatedText(
+                      "Connecting Communities to \n Turn Waste into Value",
+                      textStyle: TextStyle(
+                        fontSize: 12, // Font size
+                        fontWeight: FontWeight.bold,
+                        fontFamily: regularfont, // Font family from const_fonts.dart
+                         // Background color for text
+                      ),
+                      speed: const Duration(milliseconds: 30), // Typing speed
+                    ),
+                  ],
+                  totalRepeatCount: 1, // Runs the animation once
+                  pause: const Duration(milliseconds: 500), // Pause before restarting
+                  displayFullTextOnTap: true, // Display full text if tapped
                 ),
               ),
               SizedBox(height: 40), // Adds space between the two texts
-              Text(
-                "Welcome To WaterWise",  // You can change this to a different message if needed
-                style: TextStyle(
-                  fontSize: 18,  // Font size
-                  fontWeight: FontWeight.bold,  // Font weight
-                  fontFamily: boldfont,//ont family
-                  backgroundColor: Colors.white54,  // Background color for text
-                ),
-              ),                          
             ],
           ),
         ),

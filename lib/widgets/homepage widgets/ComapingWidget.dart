@@ -25,27 +25,26 @@ Widget Campaign() {
             // Background image
             Positioned.fill(
               child: Image.asset(
-                logo,  // Replace with your actual image path
+                campaign,  // Replace with your actual image path
                 fit: BoxFit.cover,  // Ensures the image covers the whole area and gets cropped
               ),
             ),
             // Text over the image
             Positioned(
               top: 20,  // Adjust position from the top
-              left: 10,
-              right: 10,
+
               child: Text(
                 "Do You have a creative idea?",
                 style: TextStyle(
                   fontFamily: regularfont,
-                  color: Colors.white,
+                  color: const Color.fromARGB(255, 0, 0, 0),
                   fontSize: 14,
                   shadows: [
-                    Shadow(
-                      blurRadius: 10.0,
-                      color: Colors.black.withOpacity(0.7),
-                      offset: Offset(4.0, 4.0),
-                    ),
+                    // Shadow(
+                    //   blurRadius: 10.0,
+                    //   color: Colors.black.withOpacity(0.7),
+                    //   offset: Offset(4.0, 4.0),
+                    // ),
                   ],
                 ),
                 textAlign: TextAlign.center,
@@ -71,7 +70,7 @@ Widget Campaign() {
                 child: Text(
                   "Start a Campaign",
                   style: TextStyle(
-                    color: Colors.white,  // White text on the button
+                    color: const Color.fromARGB(255, 0, 0, 0),  // White text on the button
                     fontSize: 9,
                   ),
                 ),

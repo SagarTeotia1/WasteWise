@@ -47,7 +47,7 @@ Widget buildPostTabEventNearby() {
                 topRight: Radius.circular(20),
               ),
               child: Image.asset(
-                logo, // Logo from constants file or path
+                compost, // Logo from constants file or path
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: 180, // Fixed height for image
@@ -71,7 +71,7 @@ Widget buildPostTabEventNearby() {
         Padding(
           padding: const EdgeInsets.all(5), // Decreased padding to 5
           child: Text(
-            "Event Title",  // Placeholder for event title
+            "Community Composting",  // Placeholder for event title
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
@@ -84,7 +84,7 @@ Widget buildPostTabEventNearby() {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5), // Decreased padding to 5
           child: Text(
-            "This is a description of the event. You can add details about the event here.",
+            "Learn how to compost organic waste and turn it into nutrient-rich fertilizer.",
             style: TextStyle(
               fontSize: 14,
               color: Colors.grey[600],

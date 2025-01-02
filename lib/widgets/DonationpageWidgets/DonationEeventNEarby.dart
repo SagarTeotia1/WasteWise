@@ -2,36 +2,67 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trial/const/const_fonts.dart';
 import 'package:trial/const/const_img.dart';
-import 'package:trial/screens/CatItemSilverScreen/Category_Item.dart';  // Assuming this file has your image path
+import 'package:trial/screens/CatItemSilverScreen/Category_Item.dart';
 
 Widget DonationeventNearby() {
   return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,  // Aligns text to the start (left)
+    crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      // Heading above the row of event boxes
       Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),  // Padding around the text
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Text(
-          "Donators Nearby",  // Text heading
+          "Donators Nearby",
           style: TextStyle(
             fontFamily: regularfont,
-            fontSize: 16,  // Font size of the heading
-            color: Colors.black,  // Text color
+            fontSize: 16,
+            color: Colors.black,
           ),
         ),
       ),
-      // Row of event boxes
       SingleChildScrollView(
-        scrollDirection: Axis.horizontal,  // Makes the row scrollable horizontally
+        scrollDirection: Axis.horizontal,
         child: Row(
           children: [
-            // Box 1
-            DonationeventBox(),
-            // Box 2
-            DonationeventBox(),
-            // Box 3
-            DonationeventBox(),
-            // Add more boxes as needed
+            buildDonationBox(
+              image: donate1,
+              title: "Fresh Sandwiches",
+              quantity: "Quantity: 25 pre-packed sandwiches",
+              profileImage: logo,
+              donorName: "John Smith", // Alternating donor name
+              rating: 4.5,
+            ),
+            buildDonationBox(
+              image: donate2,
+              title: "Vegetable Peelings and Stems",
+              quantity: "10 kg Organic waste",
+              profileImage: logo2,
+              donorName: "Emily Brown", // Alternating donor name
+              rating: 4.0,
+            ),
+            buildDonationBox(
+              image: donate3,
+              title: "Leftover Bread",
+              quantity: "Quantity: 30 loaves of dry bread",
+              profileImage: logo3,
+              donorName: "Michael Johnson", // Alternating donor name
+              rating: 4.0,
+            ),
+            buildDonationBox(
+              image: donate4,
+              title: "Laundry Water",
+              quantity: "Quantity: 500 liters greywater",
+              profileImage: logo4,
+              donorName: "Sophia Davis", // Alternating donor name
+              rating: 3.8,
+            ),
+            buildDonationBox(
+              image: donate5,
+              title: "Rainwater",
+              quantity: "Quantity: 1,000 liters",
+              profileImage: logo1,
+              donorName: "David Martinez", // Alternating donor name
+              rating: 4.7,
+            ),
           ],
         ),
       ),
@@ -39,18 +70,22 @@ Widget DonationeventNearby() {
   );
 }
 
-Widget DonationeventBox() {
+Widget buildDonationBox({
+  required String image,
+  required String title,
+  required String quantity,
+  required String profileImage,
+  required String donorName,
+  required double rating,
+}) {
   return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 10),  // Space between boxes
+    padding: const EdgeInsets.symmetric(horizontal: 10),
     child: Container(
-      width: 200,  // Width of each box
+      width: 200,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),  // Rounded corners
-        border: Border.all(
-          color: Colors.white,  // Set border color to white
-          width: 6,  // Increased border width to 6
-        ),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Colors.white, width: 6),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.2),
@@ -64,136 +99,109 @@ Widget DonationeventBox() {
         children: [
           Stack(
             children: [
-              // Image in the box
               ClipRRect(
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                ),
                 child: Image.asset(
-                  logo,  // Replace with your image path
+                  image,
                   fit: BoxFit.cover,
                   width: double.infinity,
-                  height: 120,  // Height of the image
+                  height: 120,
                 ),
               ),
-              // Like Icon at the top-right corner with color updated to 91AC8F
               Positioned(
                 top: 10,
                 right: 10,
                 child: Icon(
                   Icons.favorite_border,
-                  color: Color(0xFF91AC8F),  // Updated color of the like icon
+                  color: Color(0xFF91AC8F),
                   size: 24,
                 ),
               ),
             ],
           ),
-          SizedBox(height: 8),  // Space between image and text
+          SizedBox(height: 8),
           Padding(
-            padding: const EdgeInsets.all(10), // Padding for the text (10 from all sides)
+            padding: const EdgeInsets.all(10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Event Title
                 Text(
-                  "Donation Event Title",  // Replace with your event title
+                  title,
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
                   ),
-                  overflow: TextOverflow.ellipsis,  // Ensures the text doesn't overflow
+                  overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(height: 4),  // Space between event title and quantity
-                // Donation Quantity
+                SizedBox(height: 4),
                 Text(
-                  "Quantity: 10 items",  // Replace with your actual quantity
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.grey[600],
-                  ),
+                  quantity,
+                  style: TextStyle(fontSize: 12, color: Colors.grey[600]),
                 ),
               ],
             ),
           ),
-          SizedBox(height: 8),  // Space between text and profile section
+          SizedBox(height: 8),
           Padding(
-            padding: const EdgeInsets.all(10), // Padding for the profile section (10 from all sides)
+            padding: const EdgeInsets.all(10),
             child: Row(
               children: [
-                // Profile Icon
                 CircleAvatar(
                   radius: 15,
-                  backgroundImage: AssetImage(logo), // Dummy profile picture (replace with real path)
+                  backgroundImage: AssetImage(profileImage),
                 ),
-                SizedBox(width: 8),  // Space between profile icon and name
+                SizedBox(width: 8),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "John Doe",  // Dummy name (replace with the actual name of the donor)
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.grey[600],
-                      ),
+                      donorName,
+                      style: TextStyle(fontSize: 12, color: Colors.grey[600]),
                     ),
-                    SizedBox(height: 4),  // Space between name and rating
-                    // Donor rating (using stars as an example)
+                    SizedBox(height: 4),
                     Row(
-                      children: [
-                        Icon(
-                          Icons.star,
+                      children: List.generate(5, (index) {
+                        return Icon(
+                          index < rating
+                              ? Icons.star
+                              : index - rating < 0.5
+                                  ? Icons.star_half
+                                  : Icons.star_border,
                           color: Colors.yellow,
                           size: 16,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: Colors.yellow,
-                          size: 16,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: Colors.yellow,
-                          size: 16,
-                        ),
-                        Icon(
-                          Icons.star_half,
-                          color: Colors.yellow,
-                          size: 16,
-                        ),
-                        Icon(
-                          Icons.star_border,
-                          color: Colors.yellow,
-                          size: 16,
-                        ),
-                      ],
+                        );
+                      }),
                     ),
                   ],
                 ),
               ],
             ),
           ),
-          SizedBox(height: 8),  // Space between profile section and the button
+          SizedBox(height: 8),
           Padding(
-            padding: const EdgeInsets.all(10), // Padding for the button section
+            padding: const EdgeInsets.all(10),
             child: Align(
-              alignment: Alignment.center,  // Center the button
+              alignment: Alignment.center,
               child: TextButton(
                 onPressed: () {
                   Get.to(() => const CategoryItem());
-                  // Handle the contact action, such as showing a dialog or navigating to another screen
                   print("Contact button pressed!");
                 },
                 style: TextButton.styleFrom(
-                  backgroundColor: Color(0xFF91AC8F),  // Button background color
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  backgroundColor: Color(0xFF91AC8F),
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),  // Rounded corners for the button
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
                 child: Text(
-                  "Contact",  // Button text
+                  "Contact",
                   style: TextStyle(
-                    color: Colors.white,  // Text color of the button
+                    color: Colors.white,
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),

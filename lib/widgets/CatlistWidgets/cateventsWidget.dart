@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trial/const/const_img.dart'; // Assuming logo is imported here
 
+// CatEventsList widget to display multiple CatEventsCard widgets
 Widget CatEventsList() {
   return Container(
     color: Color(0xFFB2C9AD), // Set the background color of the entire Column
@@ -18,6 +19,7 @@ Widget CatEventsList() {
   );
 }
 
+// CatEventsCard widget to represent each donation event
 Widget CatEventsCard() {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 10), // Space between boxes
@@ -47,7 +49,7 @@ Widget CatEventsCard() {
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20), topRight: Radius.circular(20)),
                 child: Image.asset(
-                  logo, // Replace with your image path
+                  donate2, // Replace with your image path
                   fit: BoxFit.cover,
                   width: double.infinity,
                   height: 120, // Height of the image
@@ -73,7 +75,7 @@ Widget CatEventsCard() {
               children: [
                 // Event Title
                 Text(
-                  "Donation Event Title", // Replace with your event title
+                  "Vegetable Peelings and Stems", // Replace with your event title
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
@@ -84,7 +86,7 @@ Widget CatEventsCard() {
                 SizedBox(height: 4), // Space between event title and quantity
                 // Donation Quantity
                 Text(
-                  "Quantity: 10 items", // Replace with your actual quantity
+                  "Quantity: 10 kg Organic waste", // Replace with your actual quantity
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.grey[600],
