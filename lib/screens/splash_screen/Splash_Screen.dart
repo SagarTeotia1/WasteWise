@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgcolor, // Background color from const_Var.dart
+      backgroundColor: homeBg, // Background color from const_Var.dart
       body: Center(
         child: SingleChildScrollView(
           child: Column(

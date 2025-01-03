@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:trial/const/const_fonts.dart';
-import 'package:trial/const/const_img.dart';
 import 'package:trial/screens/CatItemSilverScreen/Category_Item.dart';
 
 Widget DonationeventNearby() {
@@ -13,8 +11,9 @@ Widget DonationeventNearby() {
         child: Text(
           "Donators Nearby",
           style: TextStyle(
-            fontFamily: regularfont,
-            fontSize: 16,
+            fontFamily: 'Roboto',
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
             color: Colors.black,
           ),
         ),
@@ -24,44 +23,59 @@ Widget DonationeventNearby() {
         child: Row(
           children: [
             buildDonationBox(
-              image: donate1,
+              image: 'assets/images/donate1.png',
               title: "Fresh Sandwiches",
-              quantity: "Quantity: 25 pre-packed sandwiches",
-              profileImage: logo,
-              donorName: "John Smith", // Alternating donor name
-              rating: 4.5,
+              quantity: "25 pre-packed sandwiches",
+              profileImage: 'assets/images/logo.png',
+              donorName: "John Smith",
+              rating: 4.8,
+              category: "Food",
+              distance: "1.2 km",
+              urgency: "High",
             ),
             buildDonationBox(
-              image: donate2,
-              title: "Vegetable Peelings and Stems",
-              quantity: "10 kg Organic waste",
-              profileImage: logo2,
-              donorName: "Emily Brown", // Alternating donor name
-              rating: 4.0,
+              image: 'assets/images/donate2.png',
+              title: "Vegetable Peelings",
+              quantity: "10 kg organic waste",
+              profileImage: 'assets/images/logo2.png',
+              donorName: "Emily Brown",
+              rating: 4.6,
+              category: "Compostable",
+              distance: "3.5 km",
+              urgency: "Medium",
             ),
             buildDonationBox(
-              image: donate3,
+              image: 'assets/images/donate3.png',
               title: "Leftover Bread",
-              quantity: "Quantity: 30 loaves of dry bread",
-              profileImage: logo3,
-              donorName: "Michael Johnson", // Alternating donor name
-              rating: 4.0,
-            ),
-            buildDonationBox(
-              image: donate4,
-              title: "Laundry Water",
-              quantity: "Quantity: 500 liters greywater",
-              profileImage: logo4,
-              donorName: "Sophia Davis", // Alternating donor name
-              rating: 3.8,
-            ),
-            buildDonationBox(
-              image: donate5,
-              title: "Rainwater",
-              quantity: "Quantity: 1,000 liters",
-              profileImage: logo1,
-              donorName: "David Martinez", // Alternating donor name
+              quantity: "30 loaves of dry bread",
+              profileImage: 'assets/images/logo3.png',
+              donorName: "Michael Johnson",
               rating: 4.7,
+              category: "Food",
+              distance: "2.8 km",
+              urgency: "Low",
+            ),
+            buildDonationBox(
+              image: 'assets/images/donate4.png',
+              title: "Laundry Water",
+              quantity: "500 liters of greywater",
+              profileImage: 'assets/images/logo4.png',
+              donorName: "Sophia Davis",
+              rating: 4.3,
+              category: "Water",
+              distance: "5.0 km",
+              urgency: "Medium",
+            ),
+            buildDonationBox(
+              image: 'assets/images/donate5.png',
+              title: "Rainwater",
+              quantity: "1,000 liters",
+              profileImage: 'assets/images/logo5.png',
+              donorName: "David Martinez",
+              rating: 4.9,
+              category: "Water",
+              distance: "0.8 km",
+              urgency: "High",
             ),
           ],
         ),
@@ -77,20 +91,23 @@ Widget buildDonationBox({
   required String profileImage,
   required String donorName,
   required double rating,
+  required String category,
+  required String distance,
+  required String urgency,
 }) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 10),
     child: Container(
-      width: 200,
+      width: 220,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.white, width: 6),
+        borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            blurRadius: 8,
-            offset: Offset(4, 4),
+            color: Colors.grey.withOpacity(0.3),
+            blurRadius: 10,
+            spreadRadius: 5,
+            offset: Offset(3, 3),
           ),
         ],
       ),
@@ -101,28 +118,37 @@ Widget buildDonationBox({
             children: [
               ClipRRect(
                 borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
+                  topLeft: Radius.circular(15),
+                  topRight: Radius.circular(15),
                 ),
                 child: Image.asset(
                   image,
                   fit: BoxFit.cover,
+                  height: 140,
                   width: double.infinity,
-                  height: 120,
                 ),
               ),
               Positioned(
                 top: 10,
                 right: 10,
-                child: Icon(
-                  Icons.favorite_border,
-                  color: Color(0xFF91AC8F),
-                  size: 24,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: urgency == "High" ? Colors.redAccent : Colors.orangeAccent,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Text(
+                    urgency,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ),
             ],
           ),
-          SizedBox(height: 8),
           Padding(
             padding: const EdgeInsets.all(10),
             child: Column(
@@ -131,81 +157,84 @@ Widget buildDonationBox({
                 Text(
                   title,
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
                   ),
-                  overflow: TextOverflow.ellipsis,
                 ),
                 SizedBox(height: 4),
                 Text(
                   quantity,
-                  style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                  style: TextStyle(fontSize: 14, color: Colors.grey[700]),
                 ),
-              ],
-            ),
-          ),
-          SizedBox(height: 8),
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: Row(
-              children: [
-                CircleAvatar(
-                  radius: 15,
-                  backgroundImage: AssetImage(profileImage),
-                ),
-                SizedBox(width: 8),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                SizedBox(height: 6),
+                Row(
                   children: [
-                    Text(
-                      donorName,
-                      style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                      decoration: BoxDecoration(
+                        color: Colors.lightBlueAccent,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Text(
+                        category,
+                        style: TextStyle(fontSize: 12, color: Colors.white),
+                      ),
                     ),
-                    SizedBox(height: 4),
-                    Row(
-                      children: List.generate(5, (index) {
-                        return Icon(
-                          index < rating
-                              ? Icons.star
-                              : index - rating < 0.5
-                                  ? Icons.star_half
-                                  : Icons.star_border,
-                          color: Colors.yellow,
-                          size: 16,
-                        );
-                      }),
+                    Spacer(),
+                    Text(
+                      distance,
+                      style: TextStyle(fontSize: 12, color: Colors.grey[600]),
                     ),
                   ],
                 ),
+                SizedBox(height: 8),
+                TextButton(
+                  onPressed: () {
+                    print("View Details clicked for $title");
+                  },
+                  child: Text(
+                    "View Details",
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                ),
               ],
             ),
           ),
-          SizedBox(height: 8),
+          Divider(thickness: 1, color: Colors.grey[300]),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              children: [
+                CircleAvatar(
+                  radius: 16,
+                  backgroundImage: AssetImage(profileImage),
+                ),
+                SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    donorName,
+                    style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+                  ),
+                ),
+              ],
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.all(10),
-            child: Align(
-              alignment: Alignment.center,
-              child: TextButton(
-                onPressed: () {
-                  Get.to(() => const CategoryItem());
-                  print("Contact button pressed!");
-                },
-                style: TextButton.styleFrom(
-                  backgroundColor: Color(0xFF91AC8F),
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+            child: ElevatedButton(
+              onPressed: () {
+                Get.to(() => const CategoryItem());
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                child: Text(
-                  "Contact",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+              ),
+              child: Text(
+                "Contact",
+                style: TextStyle(color: Colors.white),
               ),
             ),
           ),

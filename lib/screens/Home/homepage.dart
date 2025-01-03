@@ -20,41 +20,110 @@ class _HomepageState extends State<Homepage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Text(
-          "WasteWise",
-          style: TextStyle(color: Color(0xFF66785F),
-          fontFamily: regularfont
-          ,fontSize: 18), // Corrected color syntax
+          "WiseWaste",
+          style: TextStyle(
+            color: Color(0xFF66785F),
+            fontFamily: regularfont,
+            fontSize: 18,
+          ),
         ),
         actions: [
           IconButton(
             icon: Icon(Icons.notifications, color: Colors.black),
-            tooltip: "Notifications", // Added tooltip
-            onPressed: () {},
+            tooltip: "Notifications",
+            onPressed: () {
+              // Handle notifications
+            },
           ),
         ],
       ),
       drawer: Drawer(
-        child: ListView(
-          children: [
-            DrawerHeader(
-              child: Text("Drawer Header"),
-              decoration: BoxDecoration(
-                color: Colors.grey[300], // Replace with 'homeBg' or another valid color
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              UserAccountsDrawerHeader(
+                accountName: Text("Sagar"),
+                accountEmail: Text("Ex@WiseWaste.com"),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: AssetImage("assets/images/Sagar.jpg"),
+                  onBackgroundImageError: (_, __) {
+                    // Fallback image or text
+                    debugPrint("Profile image not found.");
+                  },
+                  child: Icon(Icons.person), // Fallback icon
+                ),
+                decoration: BoxDecoration(
+                  color: Color(0xFF66785F),
+                ),
               ),
-            ),
-            ListTile(
-              title: Text("Item 1"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text("Item 2"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
+              ListTile(
+                leading: Icon(Icons.dashboard),
+                title: Text("Dashboard"),
+                onTap: () {
+                  Navigator.pop(context);
+                  // Navigate to Dashboard
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.category),
+                title: Text("Categories"),
+                onTap: () {
+                  Navigator.pop(context);
+                  // Navigate to Categories
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.group),
+                title: Text("Community"),
+                onTap: () {
+                  Navigator.pop(context);
+                  // Navigate to Community
+                },
+              ),
+              Divider(),
+              ListTile(
+                leading: Icon(Icons.notifications),
+                title: Text("Notifications"),
+                onTap: () {
+                  Navigator.pop(context);
+                  // Navigate to Notifications Settings
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.account_circle),
+                title: Text("Account"),
+                onTap: () {
+                  Navigator.pop(context);
+                  // Navigate to Account Settings
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.privacy_tip),
+                title: Text("Privacy Policy"),
+                onTap: () {
+                  Navigator.pop(context);
+                  // Navigate to Privacy Policy
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.help),
+                title: Text("Help & Support"),
+                onTap: () {
+                  Navigator.pop(context);
+                  // Navigate to Help & Support
+                },
+              ),
+              Divider(),
+              ListTile(
+                leading: Icon(Icons.logout),
+                title: Text("Logout"),
+                onTap: () {
+                  Navigator.pop(context);
+                  // Handle Logout
+                },
+              ),
+            ],
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -63,15 +132,15 @@ class _HomepageState extends State<Homepage> {
           child: Column(
             children: [
               SizedBox(height: 10),
-              Greeting(), // Ensure Greeting is defined
+              Greeting(),
               SizedBox(height: 10),
-              SearchField(), // Ensure SearchField is defined
+              SearchField(),
               SizedBox(height: 10),
-              Campaign(), // Ensure Campaign is defined
+              Campaign(),
               SizedBox(height: 10),
-              Category(), // Ensure Category is defined
+              Category(),
               SizedBox(height: 10),
-              eventNearby(), // Renamed for convention
+              eventNearby(),
             ],
           ),
         ),

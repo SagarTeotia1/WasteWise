@@ -9,11 +9,12 @@ Widget Category() {
       children: [
         // Title Text (Categories)
         Text(
-          "Categories",
+          "Sustainable Categories",
           style: TextStyle(
             fontFamily: regularfont,  // Your custom font
             fontSize: 16,  // Text size
             fontWeight: FontWeight.bold,  // Optional: Make the text bold
+            color: Colors.black,  // Green color for eco-friendliness
           ),
         ),
         SizedBox(height: 10),  // Add some space between the title and the scrollable row
@@ -23,12 +24,12 @@ Widget Category() {
           scrollDirection: Axis.horizontal,  // Enables horizontal scrolling
           child: Row(
             children: [
-              CategoryItem(icon: Icons.home, label: "Home"),
-              CategoryItem(icon: Icons.business, label: "Business"),
-              CategoryItem(icon: Icons.local_cafe, label: "Cafe"),
-              CategoryItem(icon: Icons.sports, label: "Sports"),
-              CategoryItem(icon: Icons.music_note, label: "Music"),
-              CategoryItem(icon: Icons.fitness_center, label: "Fitness"),
+              CategoryItem(icon: Icons.fastfood, label: "Food Waste"),
+              CategoryItem(icon: Icons.water, label: "Water Conservation"),
+              CategoryItem(icon: Icons.local_dining, label: "Composting"),
+              CategoryItem(icon: Icons.local_hospital, label: "Sanitation"),
+              CategoryItem(icon: Icons.recycling, label: "Recycling"),
+              CategoryItem(icon: Icons.eco, label: "Sustainability"),
               // Add more categories as needed
             ],
           ),
@@ -43,10 +44,11 @@ Widget CategoryItem({required IconData icon, required String label}) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 8),  // Space between category items
     child: Container(
-      width: 90,  // Set width of the category item to make it fit 4 items on screen
+      width: 100,  // Fixed width for the category item box (to ensure uniformity)
+      height: 130, // Fixed height for the category item box (to ensure uniformity)
       padding: EdgeInsets.all(12),  // Padding inside the rectangle
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 230, 237, 231),  // Green shade background color (B2C9AD)
+        color: Color.fromARGB(255, 230, 237, 231),  // Earthy green shade background color (B2C9AD)
         borderRadius: BorderRadius.circular(15),  // Rounded corners
         boxShadow: [
           BoxShadow(
@@ -57,12 +59,12 @@ Widget CategoryItem({required IconData icon, required String label}) {
         ],
       ),
       child: Column(
-        mainAxisSize: MainAxisSize.min,  // Avoids taking more space than needed
+        mainAxisAlignment: MainAxisAlignment.center, // Center the icon and label vertically
         children: [
           Container(
             padding: EdgeInsets.all(8),  // Padding inside the rectangle for icon
             decoration: BoxDecoration(
-              color: Color(0xFF91AC8F),  // Another green shade background for the icon (91AC8F)
+              color: Color(0xFF91AC8F),  // Earthy green shade background for the icon (91AC8F)
               borderRadius: BorderRadius.circular(10),  // Rounded corners for the icon container
             ),
             child: Icon(
@@ -76,9 +78,10 @@ Widget CategoryItem({required IconData icon, required String label}) {
             label,
             style: TextStyle(
               fontFamily: regularfont,  // Custom font (if needed)
-              fontSize: 10,  // Font size for category label (smaller)
+              fontSize: 12,  // Font size for category label
               color: Colors.black,  // Text color
             ),
+            textAlign: TextAlign.center,  // Center the label text for consistency
           ),
         ],
       ),
