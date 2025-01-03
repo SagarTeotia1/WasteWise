@@ -224,7 +224,7 @@ Widget buildDonationBox({
             padding: const EdgeInsets.all(10),
             child: ElevatedButton(
               onPressed: () {
-                Get.to(() => const CategoryItem());
+                Get.to(() => const CategoryItemsScreen());
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,

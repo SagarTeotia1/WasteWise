@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:trial/const/const_fonts.dart';  // Assuming you are using a custom font
+import 'package:get/get.dart'; // GetX package for navigation
+import 'package:trial/const/const_fonts.dart';
+import 'package:trial/screens/CatItemSilverScreen/Category_Item.dart'; // Assuming you are using a custom font
 
-Widget DonateditemCategory() {
+// Main widget for donated item categories
+Widget DonatedItemCategory() {
   return Padding(
     padding: const EdgeInsets.all(10), // Padding around the whole widget
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start, // Aligning text to the left
       children: [
-          SingleChildScrollView(
-          scrollDirection: Axis.horizontal,  // Enables horizontal scrolling
+        const SizedBox(height: 10), // Space below the title
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal, // Enables horizontal scrolling
           child: Row(
             children: [
-              CategoryItem(label: "Home"),
-              CategoryItem(label: "Business"),
-              CategoryItem(label: "Cafe"),
-              CategoryItem(label: "Sports"),
-              CategoryItem(label: "Music"),
-              CategoryItem(label: "Fitness"),
-              // Add more categories as needed
+              CategoryItem(icon: Icons.food_bank, label: "Food"),
+              CategoryItem(icon: Icons.water_drop, label: "Water"),
+              CategoryItem(icon: Icons.recycling, label: "Recycle"),
+              CategoryItem(icon: Icons.cleaning_services, label: "Sanitation"),
+              CategoryItem(icon: Icons.eco, label: "Compost"),
+              CategoryItem(icon: Icons.volunteer_activism, label: "Donation"),
             ],
           ),
         ),
@@ -26,38 +29,51 @@ Widget DonateditemCategory() {
   );
 }
 
-// Widget for individual category item (Only Label, without Icon)
-Widget CategoryItem({required String label}) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 8),  // Space between category items
-    child: Container(
-      width: 90,  // Set width of the category item to make it fit 4 items on screen
-      padding: EdgeInsets.all(12),  // Padding inside the rectangle
-      decoration: BoxDecoration(
-        color: Color.fromARGB(255, 230, 237, 231),  // Green shade background color (B2C9AD)
-        borderRadius: BorderRadius.circular(15),  // Rounded corners
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),  // Shadow color
-            blurRadius: 5,  // Blur effect of shadow
-            offset: Offset(2, 2),  // Shadow position
-          ),
-        ],
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,  // Avoids taking more space than needed
-        children: [
-          // Icon has been removed, now only showing label
-          Text(
-            label,
-            style: TextStyle(
-              fontFamily: regularfont,  // Custom font (if needed)
-              fontSize: 14,  // Font size for category label (slightly larger than before)
-              color: Colors.black,  // Text color
+// Widget for individual category item
+Widget CategoryItem({required IconData icon, required String label}) {
+  return GestureDetector(
+    onTap: () {
+      Get.off(() => CategoryItemsScreen()); // Navigate to new screen
+    },
+    child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8), // Space between items
+      child: Container(
+        width: 90, // Width of the category item
+        padding: const EdgeInsets.all(12), // Padding inside the rectangle
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 230, 237, 231), // Background color
+          borderRadius: BorderRadius.circular(15), // Rounded corners
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1), // Shadow color
+              blurRadius: 5, // Blur effect
+              offset: const Offset(2, 2), // Shadow position
             ),
-          ),
-        ],
+          ],
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              icon,
+              size: 30,
+              color: Colors.green, // Icon color to match sustainability theme
+            ),
+            const SizedBox(height: 8), // Space between icon and label
+            Text(
+              label,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: regularfont, // Custom font
+                fontSize: 14, // Font size
+                color: Colors.black, // Text color
+              ),
+            ),
+          ],
+        ),
       ),
     ),
   );
 }
+
+// Screen to display items in the selected category

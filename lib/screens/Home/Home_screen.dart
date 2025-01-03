@@ -1,9 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:trial/const/const_colo.dart'; // Assuming you have your color constants here
+import 'package:trial/const/const_colo.dart'; 
+import 'package:trial/screens/Guide/GuideScreen.dart';
 import 'package:trial/screens/donate/donate_page.dart';
 import 'package:trial/screens/donation/donation_page.dart';
-import 'package:trial/screens/events/events_page.dart';
 import 'package:trial/screens/profile/profile_page.dart';
 import 'homepage.dart';
 
@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Homepage(),
     DonationPage(),
     DonatePage(),
-    EventsPage(),
+    GuideScreen(),
     ProfilePage(),
   ];
 
@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
     {'icon': Icons.home, 'label': 'Home'},
     {'icon': Icons.food_bank, 'label': 'Donations'},
     {'icon': Icons.add, 'label': 'Donate'},
-    {'icon': Icons.groups, 'label': 'Events'},
+    {'icon': Icons.accessibility, 'label': 'Guide'},
     {'icon': Icons.person, 'label': 'You'},
   ];
 

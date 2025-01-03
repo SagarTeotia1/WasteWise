@@ -5,6 +5,7 @@ import 'package:animated_text_kit/animated_text_kit.dart'; // Import for typewri
 import 'package:trial/const/const_colo.dart';
 import 'package:trial/const/const_fonts.dart';
 import 'package:trial/const/const_img.dart';
+import 'package:trial/screens/Auth/ChoseAvatar.dart';
 import 'package:trial/screens/Home/Home_screen.dart'; // Import your LoginScreen
 
 class SplashScreen extends StatefulWidget {
@@ -21,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // Navigate to LoginScreen after 3 seconds
     Future.delayed(Duration(seconds: 2), () {
       // Use Get.off() to navigate to the LoginScreen and remove the SplashScreen from the stack
-      Get.off(() => HomeScreen());
+      Get.off(() => ChooseAvatarScreen());
     });
   }
 
