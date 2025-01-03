@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:trial/const/const_fonts.dart';
-import 'package:trial/const/const_img.dart'; // Assuming this file has your image path
+import 'package:trial/const/const_img.dart';
+import 'package:trial/screens/Compaign/JoinaCompaign.dart'; // Assuming this file has your image path
 
 Widget eventNearby() {
   return Column(
@@ -227,6 +230,7 @@ Widget eventBox({
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: ElevatedButton(
               onPressed: () {
+                Get.off(()=>JoinCampaignScreen());
                 print("Join Event: $title");
               },
               style: ElevatedButton.styleFrom(

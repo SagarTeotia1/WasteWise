@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart'; // GetX package for navigation
+import 'package:trial/const/const_colo.dart';
 import 'package:trial/const/const_fonts.dart';
 import 'package:trial/screens/CatItemSilverScreen/Category_Item.dart'; // Assuming you are using a custom font
 
@@ -38,8 +39,8 @@ Widget CategoryItem({required IconData icon, required String label}) {
     child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8), // Space between items
       child: Container(
-        width: 90, // Width of the category item
-        padding: const EdgeInsets.all(12), // Padding inside the rectangle
+        width: 100, // Fixed width for consistent sizing
+        height: 120, // Fixed height for consistent sizing
         decoration: BoxDecoration(
           color: const Color.fromARGB(255, 230, 237, 231), // Background color
           borderRadius: BorderRadius.circular(15), // Rounded corners
@@ -52,12 +53,12 @@ Widget CategoryItem({required IconData icon, required String label}) {
           ],
         ),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center, // Center content vertically
           children: [
             Icon(
               icon,
               size: 30,
-              color: Colors.green, // Icon color to match sustainability theme
+              color: bgcolor, // Icon color to match sustainability theme
             ),
             const SizedBox(height: 8), // Space between icon and label
             Text(

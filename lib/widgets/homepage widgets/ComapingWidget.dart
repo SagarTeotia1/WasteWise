@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:trial/const/const_fonts.dart';
-import 'package:trial/const/const_img.dart';  // Assuming this file has your image path
+import 'package:trial/const/const_img.dart';
+import 'package:trial/screens/Compaign/StartaCompaign.dart';  // Assuming this file has your image path
 
 Widget Campaign() {
   return Padding(
@@ -56,7 +59,7 @@ Widget Campaign() {
               left: 10,  // Align the button to the left
               child: ElevatedButton(
                 onPressed: () {
-                  // Add the action for the button here
+                  Get.off(()=>StartCampaignScreen());// Add the action for the button here
                   print("Start Campaign Button Pressed");
                 },
                 style: ElevatedButton.styleFrom(

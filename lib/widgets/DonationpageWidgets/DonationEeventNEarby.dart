@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trial/screens/CatItemSilverScreen/Category_Item.dart';
+import 'package:trial/screens/Compaign/JoinaCompaign.dart';
+import 'package:trial/screens/donation/donation_Details.dart';
 
 Widget DonationeventNearby() {
   return Column(
@@ -191,6 +193,7 @@ Widget buildDonationBox({
                 SizedBox(height: 8),
                 TextButton(
                   onPressed: () {
+                    Get.off(()=>DonationDetails());
                     print("View Details clicked for $title");
                   },
                   child: Text(
@@ -220,24 +223,7 @@ Widget buildDonationBox({
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: ElevatedButton(
-              onPressed: () {
-                Get.to(() => const CategoryItemsScreen());
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-              child: Text(
-                "Contact",
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          ),
+          
         ],
       ),
     ),

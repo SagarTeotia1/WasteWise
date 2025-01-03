@@ -57,7 +57,7 @@ class _DonationPageState extends State<DonationPage> with SingleTickerProviderSt
         child: Column(
           children: [
             SearchField(),
-            const SizedBox(height: 20),
+            
             DonatedItemCategory(),
             const SizedBox(height: 20),
             DonationeventNearby(),
