@@ -39,7 +39,7 @@ class DonationDetails extends StatelessWidget {
                         children: [
                           Positioned.fill(
                             child: Image.asset(
-                              logo, // Replace with your image path
+                              'assets/images/donate4.png', // Replace with your image path
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -110,7 +110,7 @@ class DonationDetails extends StatelessWidget {
                         children: [
                           Positioned.fill(
                             child: Image.asset(
-                              logo, // Replace with your image path
+                             'assets/images/donate4.png', // Replace with your image path
                               fit: BoxFit.cover,
                             ),
                           ),

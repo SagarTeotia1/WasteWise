@@ -50,7 +50,7 @@ class _HomepageState extends State<Homepage> {
                     // Fallback image or text
                     debugPrint("Profile image not found.");
                   },
-                  child: Icon(Icons.person), // Fallback icon
+                   // Fallback icon
                 ),
                 decoration: BoxDecoration(
                   color: Color(0xFF66785F),

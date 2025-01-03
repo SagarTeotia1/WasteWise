@@ -108,7 +108,7 @@ class JoinCampaignScreen extends StatelessWidget {
                         children: [
                           Positioned.fill(
                             child: Image.asset(
-                              logo, // Replace with your image path
+                              'assets/images/compost.png', // Replace with your image path
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -187,7 +187,7 @@ class JoinCampaignScreen extends StatelessWidget {
                         ),
                         child: const Text(
                           "Join the Campaign as Volunteer",
-                          style: TextStyle(color: Colors.white, fontSize: 16),
+                          style: TextStyle(color: Colors.white, fontSize: 14),
                         ),
                       ),
                     ],

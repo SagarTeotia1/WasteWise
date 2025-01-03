@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:trial/const/const_img.dart';
 import 'package:trial/screens/CatItemSilverScreen/Category_Item.dart';
 import 'package:trial/screens/Compaign/JoinaCompaign.dart';
 import 'package:trial/screens/donation/donation_Details.dart';
@@ -28,7 +29,7 @@ Widget DonationeventNearby() {
               image: 'assets/images/donate1.png',
               title: "Fresh Sandwiches",
               quantity: "25 pre-packed sandwiches",
-              profileImage: 'assets/images/logo.png',
+              profileImage: logo,
               donorName: "John Smith",
               rating: 4.8,
               category: "Food",
@@ -39,7 +40,7 @@ Widget DonationeventNearby() {
               image: 'assets/images/donate2.png',
               title: "Vegetable Peelings",
               quantity: "10 kg organic waste",
-              profileImage: 'assets/images/logo2.png',
+              profileImage: logo,
               donorName: "Emily Brown",
               rating: 4.6,
               category: "Compostable",
@@ -72,7 +73,7 @@ Widget DonationeventNearby() {
               image: 'assets/images/donate5.png',
               title: "Rainwater",
               quantity: "1,000 liters",
-              profileImage: 'assets/images/logo5.png',
+              profileImage: logo,
               donorName: "David Martinez",
               rating: 4.9,
               category: "Water",
